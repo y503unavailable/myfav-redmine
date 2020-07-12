@@ -58,7 +58,7 @@ RUN set -eux; \
         gosu redmine git clone --depth 1 https://github.com/farend/redmine_theme_farend_fancy.git public/themes/farend_fancy; \
         gosu redmine git clone --depth 1 https://github.com/makotokw/redmine-theme-gitmike.git public/themes/gitmike; \
         gosu redmine git clone --depth 1 https://github.com/taqueci/PurpleMine2.git public/themes/PurpleMine2; \
-　　　　\
+　　　　 \
 # install gems
         gosu redmine bundle install;
 
