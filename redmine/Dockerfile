@@ -29,6 +29,23 @@ RUN set -eux; \
         ; \
         rm -rf /var/lib/apt/lists/*; \
         \
+# unofficial-redmine
+        mv ./config/configuration.yml ./; \
+        gosu redmine git clone --depth 1 https://github.com/y503unavailable/redmine.git app2; \
+        gosu redmine rm -rf ./app; \
+        gosu redmine rm -rf ./lib; \
+        gosu redmine rm -rf ./public; \
+        gosu redmine rm -rf ./config; \
+        gosu redmine rm -rf ./db/migrate; \
+#       gosu redmine rm     ./Gemfile; \
+        mv app2/app ./app; \
+        mv app2/lib ./lib; \
+        mv app2/public ./public; \
+        mv app2/config ./config; \
+        mv app2/db/migrate ./db/migrate; \
+#       gosu redmine rm ./config/configuration; \
+        cp ./configuration.yml ./config; \
+#       mv app2/Gemfile ./; \
 # install plugins
         gosu redmine git clone --depth 1 https://github.com/akiko-pusu/redmine_banner.git plugins/redmine_banner; \
         gosu redmine git clone --depth 1 https://github.com/akiko-pusu/redmine_issue_badge.git plugins/redmine_issue_badge; \
